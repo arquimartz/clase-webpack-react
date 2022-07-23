@@ -8,16 +8,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist/'),
         filename: 'bundle.js',
-        path: '/'
+        publicPath: '/'
     },
     mode: 'production',
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
             '@components': path.resolve(__dirname, 'src/components/'),
-            '@styles': path.resolve(__dirname, 'src/styles')
+            '@styles': path.resolve(__dirname, 'src/styles/')
         }
     },
     module: {
@@ -56,7 +56,7 @@ module.exports = {
         new CleanWebpackPlugin()
     ],
     optimization: {
-        minimizer: true,
+        minimize: true,
         minimizer: [
             new CssMinimizerPlugin(),
             new TerserPlugin()
